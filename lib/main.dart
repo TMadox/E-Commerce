@@ -1,4 +1,4 @@
-import 'package:e_commerce/Widgets/ColorsNConstants.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get_navigation/get_navigation.dart';
@@ -37,11 +37,3 @@ void main() async {
     ],
   )));
 }
-//  GetPage(
-//         name: '/',
-//         page: () => loggedinuser.hasData("Email") ? UserPage() : LoginScreen(),
-//       ),
-//       GetPage(
-//         name: '/second',
-//         page: () => loggedinuser.hasData("Email") ? LoginScreen() : UserPage(),
-//       ),

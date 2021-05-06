@@ -1,8 +1,11 @@
 import 'package:e_commerce/Widgets/ColorsNConstants.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:settings_ui/settings_ui.dart';
 
 class ProfilePage extends StatelessWidget {
+  final auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     var listView = ListView(
@@ -66,7 +69,14 @@ class ProfilePage extends StatelessWidget {
                 ],
               ),
             ],
-          ))
+          )),
+          ElevatedButton.icon(
+              onPressed: () {
+                auth.signOut();
+                Get.offAllNamed('/loginpage/');
+              },
+              icon: Icon(Icons.logout),
+              label: Text("Logout"))
         ],
       ),
     );

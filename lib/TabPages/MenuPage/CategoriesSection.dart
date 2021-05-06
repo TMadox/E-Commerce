@@ -7,41 +7,29 @@ class Categories extends StatelessWidget {
   final double height = Get.height;
   final double width = Get.width;
   final States statecontroller = Get.put(States());
+  ScrollController scontroller;
+  Categories({@required this.scontroller});
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
+    return SingleChildScrollView(
+      reverse: true,
+      controller: scontroller,
+      child: Container(
+        decoration: BoxDecoration(
           color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: violet.withOpacity(0.5),
-              spreadRadius: height * 0.006,
-              blurRadius: height * 0.02,
-              offset: Offset(0, height * 0.004),
-            )
-          ],
-          borderRadius: BorderRadius.all(Radius.circular(14))),
-      child: Column(
-        children: [
-          Container(
-            alignment: AlignmentDirectional.topStart,
-            padding: EdgeInsets.only(left: width * 0.034, top: height * 0.01),
-            child: Text(
-              "Categories",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(
+              child: Divider(
+                endIndent: width * 0.05,
+                indent: width * 0.05,
+                thickness: 1,
+                color: violet,
+              ),
             ),
-          ),
-          Container(
-            child: Divider(
-              endIndent: width * 0.05,
-              indent: width * 0.05,
-              thickness: 1,
-              color: violet,
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(top: height * 0.01, bottom: height * 0.01),
-            child: Row(
+            Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: availablecategories
                     .map((e) => Categoryitems(
@@ -53,8 +41,8 @@ class Categories extends StatelessWidget {
                           },
                         ))
                     .toList()),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

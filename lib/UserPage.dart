@@ -1,3 +1,4 @@
+import 'package:e_commerce/TabPages/CartPage/CartPage.dart';
 import 'package:e_commerce/Widgets/ColorsNConstants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -24,7 +25,6 @@ class UserPage extends HookWidget {
       child: GetBuilder<States>(
         builder: (getcontroller) => Scaffold(
           backgroundColor: Colors.white,
-          drawer: DrawerHeader(child: Text("sss")),
           appBar: AppBar(
             bottom: TabBar(
               controller: _tabcontroller.controller,
@@ -67,7 +67,7 @@ class UserPage extends HookWidget {
           ),
           body: TabBarView(controller: _tabcontroller.controller, children: [
             MenuPage(),
-            MenuPage(),
+            CartPage(),
             FavouritesPage(),
             ProfilePage()
           ]),
